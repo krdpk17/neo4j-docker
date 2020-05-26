@@ -4,15 +4,15 @@ services:
     neo4j:
         image: neo4j:4.0.1
         ports:
-            - ${HTTPS_PORT}:7473
+            - ${NEO_HTTPS_PORT}:7473
             - :7474
-            - ${BOLT_PORT}:7687
+            - ${NEO_BOLT_PORT}:7687
         environment:
         - NEO4J_dbms_connector_https_enabled=true
         - NEO4J_dbms_ssl_policy_https_enabled=true
-        - NEO4J_AUTH=${USER}/${PASSWD}
-        - NEO4J_dbms_connector_bolt_advertised__address=${SERVER_DNS}:${BOLT_PORT}
-        - NEO4J_dbms_connector_https_advertised__address=${SERVER_DNS}:${HTTPS_PORT}
+        - NEO4J_AUTH=${NEO_USER}/${NEO_PASSWD}
+        - NEO4J_dbms_connector_bolt_advertised__address=${NEO_SERVER_DNS}:${NEO_BOLT_PORT}
+        - NEO4J_dbms_connector_https_advertised__address=${NEO_SERVER_DNS}:${NEO_HTTPS_PORT}
         - NEO4J_transaction_security_ssl_enabled=true
         - NEO4J_dbms_connector_https_listen__address=:7473
         - NEO4J_https_ssl__policy=default
@@ -27,8 +27,8 @@ services:
         - NEO4J_browser_retain__connection__credentials=false
 
         volumes:
-        - ${DB_MNT_PATH}/certificates:/certificates
-        - ${DB_MNT_PATH}/data:/data
-        - ${DB_MNT_PATH}/logs:/logs
-        - ${DB_MNT_PATH}/import:/import
-        - ${DB_MNT_PATH}/plugins:/plugins
+        - ${NEO_DB_MNT_PATH}/certificates:/certificates
+        - ${NEO_DB_MNT_PATH}/data:/data
+        - ${NEO_DB_MNT_PATH}/logs:/logs
+        - ${NEO_DB_MNT_PATH}/import:/import
+        - ${NEO_DB_MNT_PATH}/plugins:/plugins

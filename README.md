@@ -18,5 +18,6 @@ sudo bash run_neo4j.bash down
 Edit settings in neo4j_backup.cfg
 ### Run below command to start backup
 sudo bash run_backup.sh
-
+### Note
 **Backup will be stored in the backup folder of same DB path in parallel to DB folder**
+**This code learns few configuration automatically from neo4j.cfg **

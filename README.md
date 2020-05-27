@@ -17,9 +17,9 @@ sudo bash run_neo4j.bash down
 ## Set Configuration 
 Edit settings in neo4j_backup_restore.cfg
 ### Run below command 
-####To perform backup
+#### To perform backup
 sudo bash run_backup.sh
-####To perform restore
+#### To perform restore
 sudo bash run_restore.sh
 ### Note
 **Backup will be stored in the backup folder of same DB path in parallel to DB folder**

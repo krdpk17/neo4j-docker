@@ -3,7 +3,6 @@ version: '3'
 services:
     neo4j:
         image: neo4j:4.0.1
-        user: "${CUID}:${CGUID}"
         ports:
             - ${NEO_HTTPS_PORT}:7473
             - ${NEO_BOLT_PORT}:7687

@@ -22,6 +22,6 @@ sudo bash run_backup.sh
 #### To perform restore
 sudo bash run_restore.sh
 ### Note
-#####Backup will be stored in the backup folder of same DB path in parallel to DB folder
-#####For restore, file will be picked from restore folder of same DB path in parallel to DB folder
-#####This code picks DB Mount path configuration from neo4j.cfg
+##### Backup will be stored in the backup folder of same DB path in parallel to DB folder
+##### For restore, file will be picked from restore folder of same DB path in parallel to DB folder
+##### This code picks DB Mount path configuration from neo4j.cfg

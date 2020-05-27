@@ -13,11 +13,15 @@ sudo bash run_neo4j.bash up -d
 sudo bash run_neo4j.bash down
 
 
-# Backup of data
+# Backup/Restore of data
 ## Set Configuration 
-Edit settings in neo4j_backup.cfg
-### Run below command to start backup
+Edit settings in neo4j_backup_restore.cfg
+### Run below command 
+**To perform backup**
 sudo bash run_backup.sh
+**To perform restore**
+sudo bash run_restore.sh
 ### Note
 **Backup will be stored in the backup folder of same DB path in parallel to DB folder**
-**This code learns few configuration automatically from neo4j.cfg **
+**For restore, file will be picked from restore folder of same DB path in parallel to DB folder**
+**This code picks DB Mount path configuration from neo4j.cfg **

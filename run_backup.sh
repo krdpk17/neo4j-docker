@@ -13,8 +13,8 @@ docker stop ${NEO4J_SVR_NAME}
 echo "stopped ${NEO4J_SVR_NAME} server for backup at" `date`
 docker run --rm  -i --name ${NEO4J_TMP_CONTAINER_NAME} -v ${NEO_DB_MNT_PATH}/data:/data -v ${NEO_DB_MNT_PATH}/backup:/backup neo4j:4.0.1 /bin/bash -c "bin/neo4j-admin dump --database=neo4j --to=/backup/${NEO4J_DUMP_FILE_NAME}"
 echo "finished backup at" `date`
-chown -R neo4jadmin ${NEO_DB_MNT_PATH}/data
-chgrp -R neo4jadmin ${NEO_DB_MNT_PATH}/data
+chown -R ${NEO4J_DB_OWNER} ${NEO_DB_MNT_PATH}/data
+chgrp -R ${NEO4J_DB_GROUP} ${NEO_DB_MNT_PATH}/data
 sleep 2
 docker start ${NEO4J_SVR_NAME}
 echo "restarted ${NEO4J_SVR_NAME} server at" `date`

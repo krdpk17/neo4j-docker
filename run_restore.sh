@@ -13,8 +13,8 @@ docker stop ${NEO4J_SVR_NAME}
 echo "stopped ${NEO4J_SVR_NAME} server for restore at" `date`
 docker run --rm  -i --name ${NEO4J_TMP_CONTAINER_NAME} -v ${NEO_DB_MNT_PATH}/data:/data -v ${NEO_DB_MNT_PATH}/restore:/restore neo4j:4.0.1 /bin/bash -c "bin/neo4j-admin load --database=neo4j --from=/restore/${NEO4J_DUMP_FILE_NAME} --force"
 echo "finished ${NEO4J_SVR_NAME} restore at" `date`
-chown -R neo4jadmin ${NEO_DB_MNT_PATH}/data
-chgrp -R neo4jadmin ${NEO_DB_MNT_PATH}/data
+chown -R ${NEO4J_DB_OWNER} ${NEO_DB_MNT_PATH}/data
+chgrp -R ${NEO4J_DB_GROUP} ${NEO_DB_MNT_PATH}/data
 sleep 2
 docker start ${NEO4J_SVR_NAME}
 echo "restarted server at" `date`

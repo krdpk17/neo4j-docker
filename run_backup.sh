@@ -1,6 +1,6 @@
 set -o allexport
 source neo4j.cfg
-source neo4j_backup.cfg
+source neo4j_backup_restore.cfg
 set +o allexport
 
 echo "starting backup at" `date`

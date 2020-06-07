@@ -31,3 +31,9 @@ services:
         - ${NEO_DB_MNT_PATH}/logs:/logs
         - ${NEO_DB_MNT_PATH}/import:/import
         - ${NEO_DB_MNT_PATH}/plugins:/plugins
+
+        logging:
+            driver: "json-file"
+            options:
+                max-size: "10m"
+                max-file: "2"

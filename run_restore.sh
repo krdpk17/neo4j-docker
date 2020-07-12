@@ -14,6 +14,8 @@ docker run --rm  -i --name ${NEO4J_TMP_CONTAINER_NAME} -v ${NEO_DB_MNT_PATH}/dat
 echo "finished ${NEO4J_SVR_NAME} restore at" `date`
 chown -R ${NEO4J_DB_OWNER} ${NEO_DB_MNT_PATH}/data
 chgrp -R ${NEO4J_DB_GROUP} ${NEO_DB_MNT_PATH}/data
+echo moving restore file to archive
+mv ${RESTORE_NEO4J_DIR_HOSTPATH}/${NEO4J_DUMP_FILE_NAME} ${RESTORE_NEO4J_DIR_HOSTPATH}/${NEO4J_DUMP_FILE_NAME}_bkp
 sleep 2
 docker start ${NEO4J_SVR_NAME}
 echo "restarted server at" `date`
